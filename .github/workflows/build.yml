@@ -16,6 +16,9 @@ jobs:
       #Remove if not needed, clone the LA project and get seer
       - name: Clone LA Repository
         run: git clone https://github.com/GiR-Zippo/LightAmp.git
+
+      - name: tte
+        run: ls
       
       - name: Identify files to invalidate
         uses: docker://fmichonneau/ga-compare-folders:latest
