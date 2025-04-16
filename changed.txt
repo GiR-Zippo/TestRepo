@@ -1,6 +1,0 @@
-
-Name                        Length SideIndicator
-----                        ------ -------------
-BardMusicPlayer.Seer.csproj   4282 =>
-BardMusicPlayer.Seer.csproj   4287 <=
-
