@@ -21,9 +21,10 @@ jobs:
         run: ls
       
       - name: Identify files to invalidate
-        run: $Folder1 = Get-childitem "BardMusicPlayer.Seer" \
-             $Folder2 = Get-childitem  "LightAmp/BardMusicPlayer.Seer" \
-             Compare-Object $Folder1 $Folder2 -Property Name, Length > changed.txt
+        run: |
+        $Folder1 = Get-childitem "BardMusicPlayer.Seer"
+        $Folder2 = Get-childitem  "LightAmp/BardMusicPlayer.Seer"
+        Compare-Object $Folder1 $Folder2 -Property Name, Length > changed.txt
 
 
       - name: cat 
