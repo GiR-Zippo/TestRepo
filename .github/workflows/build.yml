@@ -27,6 +27,11 @@ jobs:
         id: "compare"
         run: if (Get-Content .\changed.txt){"CHANGED=false" >> "$GITHUB_OUTPUT"}else{"CHANGED=true" >> "$GITHUB_OUTPUT"}
 
+      - name: Get color
+        env:
+          CHANGED: ${{ steps.color-selector.outputs.CHANGED }}
+        run: echo "The selected color is $CHANGED"
+
       - if: steps.compare.outputs.CHANGED  == 'true'
         name: IF
         run: echo ":)"
