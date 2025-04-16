@@ -25,17 +25,22 @@ jobs:
 
       - name: Check for output
         id: "compare"
-        run: if (Get-Content .\changed.txt){echo "CHANGED=false" >> $env:GITHUB_OUTPUT}else{echo "CHANGED=true" >> $env:GITHUB_OUTPUT}
-
+        run: if (Get-Content .\changed.txt){echo "CHANGED=true" >> $env:GITHUB_OUTPUT}else{echo "CHANGED=false" >> $env:GITHUB_OUTPUT}
 
       - if: steps.compare.outputs.CHANGED  == 'true'
         name: IF
-        run: echo ":)"
+        run: echo "No SEER-Update needed"
 
       - if: steps.compare.outputs.CHANGED  == 'false'
         name: IF NOT
-        run: echo ":("
-
+        run: |
+         echo "Updating SEER"
+         Remove-Item -Recurse -Force BardMusicPlayer.Seer
+         New-Item -Force -Type Directory BardMusicPlayer.Seer
+         Copy-Item -Force -Recurse LightAmp/BardMusicPlayer.Seer/* BardMusicPlayer.Seer
+         Remove-Item -Recurse -Force LightAmp
+         ls
+         
       - name: cat 
         run: cat changed.txt
 
