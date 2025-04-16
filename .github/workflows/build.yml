@@ -13,23 +13,35 @@ jobs:
     steps:      
       - uses: actions/checkout@v2
     
-      #Remove if not needed, clone the LA project 
+      #Remove if not needed, clone the LA project and get seer
       - name: Clone LA Repository
         run: git clone https://github.com/GiR-Zippo/LightAmp.git
 
       - name: Delete old seer
         run: Remove-Item -Recurse -Force BardMusicPlayer.Seer
 
-      - name: Do LS 1
-        run: ls
-
       - name: Create SEER
         run: New-Item -Force -Type Directory BardMusicPlayer.Seer
       
       - name: Copy SEER contents
         run: Copy-Item -Force -Recurse LightAmp/BardMusicPlayer.Seer/* BardMusicPlayer.Seer
+      #Remove if not needed
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
         
-      - name: Do LS 2
-        run: ls
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1
 
+      - name: Navigate to Workspace
+        run: cd $GITHUB_WORKSPACE
 
+      - name: Restore Packages
+        run: nuget restore BMP.sln
+
+      - name: Build Solution
+        run: |
+          msbuild.exe BMP.sln /p:platform="x64" /p:configuration="Release"
