@@ -18,6 +18,18 @@ jobs:
         run: git clone https://github.com/GiR-Zippo/LightAmp.git
 
       - name: Delete old seer
+        run: Remove-Item -Recurse -Force BardMusicPlayer.Seer
+
+      - name: Do LS 1
         run: ls
+
+      - name: Create SEER
+        run: New-Item -Force -Type Directory BardMusicPlayer.Seer
       
+      - name: Copy SEER contents
+        run: Copy-Item -Force -Recurse LightAmp/BardMusicPlayer.Seer/* BardMusicPlayer.Seer
+        
+      - name: Do LS 2
+        run: ls
+
 
