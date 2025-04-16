@@ -51,18 +51,50 @@ jobs:
           file: "BardMusicPlayer/BardMusicPlayer.csproj"
           version: bump-build
 
+      #Build everything
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+        
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1
+
+      - name: Navigate to Workspace
+        run: cd $GITHUB_WORKSPACE
+
+      - name: Restore Packages
+        run: nuget restore BMP.sln
+
+      - name: Build Solution
+        run: |
+          msbuild.exe BMP.sln /p:platform="x64" /p:configuration="Release"
+
+      #Get the version number
       - uses: kzrnm/get-net-sdk-project-versions-action@v1
         id: get-version
         with:
           proj-path: BardMusicPlayer/BardMusicPlayer.csproj
-      - run: echo "${{steps.get-version.outputs.version}}"
-      - run: echo "${{steps.get-version.outputs.version-prefix}}" 
-      - run: echo "${{steps.get-version.outputs.version-suffix}}" 
-      - run: echo "${{steps.get-version.outputs.package-version}}" 
-      - run: echo "${{steps.get-version.outputs.assembly-version}}" 
       - run: echo "${{steps.get-version.outputs.file-version}}" 
-      - run: echo "${{steps.get-version.outputs.informational-version}}"
 
+      - name: Clean up the shit
+        run: |
+          Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native32.dll
+          Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native64.dylib
+          Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
+          Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
+
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create-new-release.outputs.upload_url }}
+          asset_path: ./BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
+          asset_name: BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
+          asset_content_type: application/zip
 
       #- uses: stefanzweifel/git-auto-commit-action@v5
       #  with:
