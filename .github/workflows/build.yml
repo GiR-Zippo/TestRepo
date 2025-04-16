@@ -25,7 +25,7 @@ jobs:
 
       - name: Check for output
         id: "compare"
-        run: if (Get-Content .\changed.txt){"CHANGED=false" >> "$GITHUB_OUTPUT"}else{"CHANGED=true" >> "$GITHUB_OUTPUT"}
+        run: if (Get-Content .\changed.txt){"CHANGED=false" >> $GITHUB_OUTPUT}else{"CHANGED=true" >> $GITHUB_OUTPUT}
 
       - name: Get color
         env:
