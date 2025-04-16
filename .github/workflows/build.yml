@@ -29,7 +29,7 @@ jobs:
 
       - name: Get color
         env:
-          CHANGED: ${{ steps.color-selector.outputs.CHANGED }}
+          CHANGED: ${{ steps.compare.outputs.CHANGED }}
         run: echo "The selected color is $CHANGED"
 
       - if: steps.compare.outputs.CHANGED  == 'true'
