@@ -1,0 +1,41 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- Playlist -->
+    <sys:String x:Key="PlaylistNew" xml:space="preserve">Create a new playlist</sys:String>
+    <sys:String x:Key="PlaylistAdd" xml:space="preserve">Add song(s) to the current playlist &#13;Right click add a folder</sys:String>
+    <sys:String x:Key="PlaylistRem" xml:space="preserve">Remove the selected song(s) from the playlist</sys:String>
+    <sys:String x:Key="PlaylistDel" xml:space="preserve">Delete the current playlist</sys:String>
+    <sys:String x:Key="PlaylistShowAll" xml:space="preserve">Show all songs across every playlist</sys:String>
+    <sys:String x:Key="PlaylistSearch" xml:space="preserve">Search for a song in the playlist</sys:String>
+    <sys:String x:Key="PlaylistImport" xml:space="preserve">Import a playlist</sys:String>
+    <sys:String x:Key="PlaylistExport" xml:space="preserve">Export a playlist</sys:String>
+    <sys:String x:Key="PlaylistNewCatalog" xml:space="preserve">Create a new MusicCatalog</sys:String>
+    <sys:String x:Key="PlaylistOpenCatalog" xml:space="preserve">Open an existing MusicCatalog</sys:String>
+    <sys:String x:Key="PlaylistExportCatalog" xml:space="preserve">Export the current MusicCatalog</sys:String>
+    <sys:String x:Key="PlaylistCleanupCatalog" xml:space="preserve">Reorganize the MusicCatalog to save space</sys:String>
+    <sys:String x:Key="PlaylistRepeat" xml:space="preserve">Repeat</sys:String>
+    <sys:String x:Key="PlaylistShuffle" xml:space="preserve">Shuffle</sys:String>
+
+    <!-- Settings: Local Orchestra -->
+    <sys:String x:Key="LocalOrchestraAutoEquip" xml:space="preserve">Auto-equip the performer(s) at song loading</sys:String>
+    <sys:String x:Key="LocalOrchestraKeepTracks" xml:space="preserve">Keep the performer settings</sys:String>
+    <sys:String x:Key="LocalOrchestraAutoStart" xml:space="preserve">Select the autostart trigger</sys:String>
+    <sys:String x:Key="LocalOrchestraDalamudDoot" xml:space="preserve">Use DalamudDoot enhancements &#13;Only enable if plugin is available!</sys:String>
+
+    <!-- Settings: Playback -->
+    <sys:String x:Key="PlaybackHoldNotes" xml:space="preserve">Plays the length of a note as intended</sys:String>
+    <sys:String x:Key="PlaybackForce" xml:space="preserve">Ignore everything and play</sys:String>
+    <sys:String x:Key="PlaybackIgnoreProgram" xml:space="preserve">Ignores guitar program change events &#13;Except Program:ElectricGuitar</sys:String>
+    <!--<sys:String x:Key="PlaybackMidiLoader" xml:space="preserve">Specify MIDI Loader</sys:String>-->
+    <sys:String x:Key="PlaybackLive" xml:space="preserve">Improves live play (should be disabled when playing a midi)</sys:String>
+    <sys:String x:Key="PlaybackMidiInput" xml:space="preserve">Select your MIDI input device (midi keyboard)</sys:String>
+
+    <!-- Miscellaneous -->
+    <sys:String x:Key="DarkMode" xml:space="preserve">Toggle Dark Mode</sys:String>
+    <sys:String x:Key="ExportSong" xml:space="preserve">Export the current loaded song to MIDI&#13;Helpful to convert .mmsong or .gp files to .mid</sys:String>
+    <sys:String x:Key="LyricsTrackNumber" xml:space="preserve">Enables lyrics parsing &#13;0 means stop lyric parsing &#13;1 the first lyrics track (lyric tracks are separate from the music tracks)</sys:String>
+    <sys:String x:Key="Multibox" xml:space="preserve">Start more than two game instances</sys:String>
+    <sys:String x:Key="KeepOnTop" xml:space="preserve">Keep BMP window on top</sys:String>
+</ResourceDictionary>

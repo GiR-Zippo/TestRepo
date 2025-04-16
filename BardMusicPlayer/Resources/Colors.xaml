@@ -1,0 +1,20 @@
+﻿<!--
+  Copyright(c) 2021 MoogleTroupe, trotlinebeercan
+  Licensed under the GPL v3 license. See https://github.com/BardMusicPlayer/BardMusicPlayer/blob/develop/LICENSE for full license information.
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="BmpSuiteOrange" Color="#EB5B37" />
+    <SolidColorBrush x:Key="BmpSuiteSand" Color="#FFE1A3" />
+    <SolidColorBrush x:Key="BmpSuiteDarkPurple" Color="#3C365E" />
+    <SolidColorBrush x:Key="BmpSuiteCream" Color="#FCE8DC" />
+    <SolidColorBrush x:Key="BmpSuitePink" Color="#F5ABBE" />
+    <SolidColorBrush x:Key="BmpSuiteLavender" Color="#C0BAE2" />
+    <SolidColorBrush x:Key="BmpSuiteLightGrey" Color="#F7F8FA" />
+    <SolidColorBrush x:Key="BmpSuiteWhite" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="BmpSuiteGrey" Color="#383A42" />
+    <SolidColorBrush x:Key="BmpSuiteDarkGrey" Color="#27282E" />
+    <SolidColorBrush x:Key="BmpSuiteBlue" Color="#3574F0" />
+    <SolidColorBrush x:Key="BmpSuiteBlueGrey" Color="#A8ADBD" />
+</ResourceDictionary>

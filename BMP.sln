@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer", "BardMusicPlayer\BardMusicPlayer.csproj", "{E8DAFE06-97DF-4B94-BE4A-EE29033495F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1249F5D0-0C18-4D50-B584-B03E69768211} = {1249F5D0-0C18-4D50-B584-B03E69768211}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Coffer", "BardMusicPlayer.Coffer\BardMusicPlayer.Coffer.csproj", "{82A7597F-9957-4A47-A14E-504D3E0ECAF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.DalamudBridge", "BardMusicPlayer.DalamudBridge\BardMusicPlayer.DalamudBridge.csproj", "{1249F5D0-0C18-4D50-B584-B03E69768211}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Maestro", "BardMusicPlayer.Maestro\BardMusicPlayer.Maestro.csproj", "{00BAC18C-1670-4CFC-8826-AD02347BA776}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Pigeonhole", "BardMusicPlayer.Pigeonhole\BardMusicPlayer.Pigeonhole.csproj", "{CD059BEC-16C3-4BF4-AA8F-15EA9D473758}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Quotidian", "BardMusicPlayer.Quotidian\BardMusicPlayer.Quotidian.csproj", "{97070A4A-0A5A-4B67-BC79-D2A2CF9B5B13}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Script", "BardMusicPlayer.Script\BardMusicPlayer.Script.csproj", "{11429258-48CD-4230-9801-E1788C318704}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Seer", "BardMusicPlayer.Seer\BardMusicPlayer.Seer.csproj", "{FAE02D19-1DA3-4697-8040-565C5FD8DD8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Siren", "BardMusicPlayer.Siren\BardMusicPlayer.Siren.csproj", "{03D848F1-F319-43DA-B0F8-E83A19EF3108}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BardMusicPlayer.Transmogrify", "BardMusicPlayer.Transmogrify\BardMusicPlayer.Transmogrify.csproj", "{AFB55E52-C439-481E-99F4-0B56C42A6D4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sanford.Multimedia.Midi", "Sanford.Multimedia.Midi\Sanford.Multimedia.Midi.csproj", "{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8DAFE06-97DF-4B94-BE4A-EE29033495F8}.Debug|x64.ActiveCfg = Debug|x64
+		{E8DAFE06-97DF-4B94-BE4A-EE29033495F8}.Debug|x64.Build.0 = Debug|x64
+		{E8DAFE06-97DF-4B94-BE4A-EE29033495F8}.Release|x64.ActiveCfg = Release|x64
+		{E8DAFE06-97DF-4B94-BE4A-EE29033495F8}.Release|x64.Build.0 = Release|x64
+		{82A7597F-9957-4A47-A14E-504D3E0ECAF7}.Debug|x64.ActiveCfg = Debug|x64
+		{82A7597F-9957-4A47-A14E-504D3E0ECAF7}.Debug|x64.Build.0 = Debug|x64
+		{82A7597F-9957-4A47-A14E-504D3E0ECAF7}.Release|x64.ActiveCfg = Release|x64
+		{82A7597F-9957-4A47-A14E-504D3E0ECAF7}.Release|x64.Build.0 = Release|x64
+		{1249F5D0-0C18-4D50-B584-B03E69768211}.Debug|x64.ActiveCfg = Debug|x64
+		{1249F5D0-0C18-4D50-B584-B03E69768211}.Debug|x64.Build.0 = Debug|x64
+		{1249F5D0-0C18-4D50-B584-B03E69768211}.Release|x64.ActiveCfg = Release|x64
+		{1249F5D0-0C18-4D50-B584-B03E69768211}.Release|x64.Build.0 = Release|x64
+		{00BAC18C-1670-4CFC-8826-AD02347BA776}.Debug|x64.ActiveCfg = Debug|x64
+		{00BAC18C-1670-4CFC-8826-AD02347BA776}.Debug|x64.Build.0 = Debug|x64
+		{00BAC18C-1670-4CFC-8826-AD02347BA776}.Release|x64.ActiveCfg = Release|x64
+		{00BAC18C-1670-4CFC-8826-AD02347BA776}.Release|x64.Build.0 = Release|x64
+		{CD059BEC-16C3-4BF4-AA8F-15EA9D473758}.Debug|x64.ActiveCfg = Debug|x64
+		{CD059BEC-16C3-4BF4-AA8F-15EA9D473758}.Debug|x64.Build.0 = Debug|x64
+		{CD059BEC-16C3-4BF4-AA8F-15EA9D473758}.Release|x64.ActiveCfg = Release|x64
+		{CD059BEC-16C3-4BF4-AA8F-15EA9D473758}.Release|x64.Build.0 = Release|x64
+		{97070A4A-0A5A-4B67-BC79-D2A2CF9B5B13}.Debug|x64.ActiveCfg = Debug|x64
+		{97070A4A-0A5A-4B67-BC79-D2A2CF9B5B13}.Debug|x64.Build.0 = Debug|x64
+		{97070A4A-0A5A-4B67-BC79-D2A2CF9B5B13}.Release|x64.ActiveCfg = Release|x64
+		{97070A4A-0A5A-4B67-BC79-D2A2CF9B5B13}.Release|x64.Build.0 = Release|x64
+		{11429258-48CD-4230-9801-E1788C318704}.Debug|x64.ActiveCfg = Debug|x64
+		{11429258-48CD-4230-9801-E1788C318704}.Debug|x64.Build.0 = Debug|x64
+		{11429258-48CD-4230-9801-E1788C318704}.Release|x64.ActiveCfg = Release|x64
+		{11429258-48CD-4230-9801-E1788C318704}.Release|x64.Build.0 = Release|x64
+		{FAE02D19-1DA3-4697-8040-565C5FD8DD8A}.Debug|x64.ActiveCfg = Debug|x64
+		{FAE02D19-1DA3-4697-8040-565C5FD8DD8A}.Debug|x64.Build.0 = Debug|x64
+		{FAE02D19-1DA3-4697-8040-565C5FD8DD8A}.Release|x64.ActiveCfg = Release|x64
+		{FAE02D19-1DA3-4697-8040-565C5FD8DD8A}.Release|x64.Build.0 = Release|x64
+		{03D848F1-F319-43DA-B0F8-E83A19EF3108}.Debug|x64.ActiveCfg = Debug|x64
+		{03D848F1-F319-43DA-B0F8-E83A19EF3108}.Debug|x64.Build.0 = Debug|x64
+		{03D848F1-F319-43DA-B0F8-E83A19EF3108}.Release|x64.ActiveCfg = Release|x64
+		{03D848F1-F319-43DA-B0F8-E83A19EF3108}.Release|x64.Build.0 = Release|x64
+		{AFB55E52-C439-481E-99F4-0B56C42A6D4B}.Debug|x64.ActiveCfg = Debug|x64
+		{AFB55E52-C439-481E-99F4-0B56C42A6D4B}.Debug|x64.Build.0 = Debug|x64
+		{AFB55E52-C439-481E-99F4-0B56C42A6D4B}.Release|x64.ActiveCfg = Release|x64
+		{AFB55E52-C439-481E-99F4-0B56C42A6D4B}.Release|x64.Build.0 = Release|x64
+		{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}.Debug|x64.ActiveCfg = Debug|x64
+		{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}.Debug|x64.Build.0 = Debug|x64
+		{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}.Release|x64.ActiveCfg = Release|x64
+		{4269C72A-8D3A-4737-8F89-72EAA33EA9E1}.Release|x64.Build.0 = Release|x64
+
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDBC828C-47E5-4BA7-B8D9-1BA0A971EF11}
+	EndGlobalSection
+EndGlobal
