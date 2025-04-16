@@ -85,6 +85,11 @@ jobs:
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
+      - name: Update Repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Bump version to ${{steps.get-version.outputs.version}}
+
       - name: Create Release
         id: create-new-release
         uses: actions/create-release@latest
@@ -108,8 +113,4 @@ jobs:
           asset_path: ./BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_name: BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_content_type: application/zip
-
-      #- uses: stefanzweifel/git-auto-commit-action@v5
-      #  with:
-      #    commit_message: Automated Change
-
+          
