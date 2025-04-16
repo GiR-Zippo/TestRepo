@@ -28,12 +28,12 @@ jobs:
         run: if (Get-Content .\changed.txt){echo "CHANGED=true" >> $env:GITHUB_OUTPUT}else{echo "CHANGED=false" >> $env:GITHUB_OUTPUT}
 
       - if: steps.compare.outputs.CHANGED  == 'false'
-        name: IF
+        name: No SEER-Update needed
         run: echo "No SEER-Update needed"
 
       #Remove if not needed: Copy new SEER and delete the LA folder
       - if: steps.compare.outputs.CHANGED  == 'true'
-        name: IF NOT
+        name: SEER-Update needed
         run: |
          echo "Updating SEER"
          echo "Changed files"
