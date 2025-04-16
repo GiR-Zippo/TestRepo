@@ -29,7 +29,7 @@ jobs:
 
       - if: steps.compare.outputs.CHANGED  == 'false'
         name: No SEER-Update needed
-        run: echo "No SEER-Update needed"
+        run: Remove-Item -Force .\changed.txt
 
       #Remove if not needed: Copy new SEER and delete the LA folder
       - if: steps.compare.outputs.CHANGED  == 'true'
@@ -42,6 +42,7 @@ jobs:
          New-Item -Force -Type Directory BardMusicPlayer.Seer
          Copy-Item -Force -Recurse LightAmp/BardMusicPlayer.Seer/* BardMusicPlayer.Seer
          Remove-Item -Recurse -Force LightAmp
+         Remove-Item -Force .\changed.txt
          ls
          
       - name: Bump build version
@@ -83,7 +84,6 @@ jobs:
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native32.dll
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native64.dylib
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
-          Remove-Item -Recurse -Force .\changed.txt
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
       - name: Update Repo
