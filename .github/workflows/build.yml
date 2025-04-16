@@ -12,6 +12,12 @@ jobs:
     
     steps:      
       - uses: actions/checkout@v2
+
+      - name: Clone GiR-Zippo/LightAmp PUBLIC repository
+        uses: GiR-Zippo/LightAmp@main
+        with:
+          owner: 'GiR-Zippo'
+          repository: 'LightAmp'
       
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v1
