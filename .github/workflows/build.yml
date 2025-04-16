@@ -17,15 +17,23 @@ jobs:
       - name: Clone LA Repository
         run: git clone https://github.com/GiR-Zippo/LightAmp.git
 
-      - name: tte
-        run: ls
-      
-      - name: Identify files to invalidate
+      - name: Compare SEER Folder
         run: |
           $Folder1 = Get-childitem ".\BardMusicPlayer.Seer"
           $Folder2 = Get-childitem  ".\LightAmp/BardMusicPlayer.Seer"
           Compare-Object $Folder1 $Folder2 -Property Name, Length > changed.txt
 
+      - name: Check for output
+        id: "compare"
+        run: if (Get-Content .\File.txt){$true}else{$false} >> $GITHUB_OUTPUT
+
+      - if: steps.compare.outputs  == 'true'
+        name: IF
+        run: echo ":)"
+
+      - if: steps.compare.outputs  == 'false'
+        name: IF NOT
+        run: echo ":("
 
       - name: cat 
         run: cat changed.txt
