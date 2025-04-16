@@ -25,7 +25,7 @@ jobs:
 
       - name: Check for output
         id: "compare"
-        run: if (Get-Content .\File.txt){$true}else{$false} >> $GITHUB_OUTPUT
+        run: if (Get-Content .\changed.txt){$true}else{$false} >> $GITHUB_OUTPUT
 
       - if: steps.compare.outputs  == 'true'
         name: IF
