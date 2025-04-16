@@ -21,13 +21,11 @@ jobs:
         run: ls
       
       - name: Identify files to invalidate
-        uses: docker://fmichonneau/ga-compare-folders:latest
-        env:
-          FOLDER_1: BardMusicPlayer.Seer/
-          FOLDER_2: LightAmp/BardMusicPlayer.Seer/
-          OUTPUT: changed_files.txt
-          ADD_ROOTS: true
+        run: $Folder1 = Get-childitem "BardMusicPlayer.Seer" \
+             $Folder2 = Get-childitem  "LightAmp/BardMusicPlayer.Seer" \
+             Compare-Object $Folder1 $Folder2 -Property Name, Length > changed.txt
+
 
       - name: cat 
-        run: cat changed_files.txt
+        run: cat changed.txt
 
