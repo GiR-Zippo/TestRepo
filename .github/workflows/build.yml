@@ -27,11 +27,11 @@ jobs:
         id: "compare"
         run: if (Get-Content .\changed.txt){echo "CHANGED=true" >> $env:GITHUB_OUTPUT}else{echo "CHANGED=false" >> $env:GITHUB_OUTPUT}
 
-      - if: steps.compare.outputs.CHANGED  == 'true'
+      - if: steps.compare.outputs.CHANGED  == 'false'
         name: IF
         run: echo "No SEER-Update needed"
 
-      - if: steps.compare.outputs.CHANGED  == 'false'
+      - if: steps.compare.outputs.CHANGED  == 'true'
         name: IF NOT
         run: |
          echo "Updating SEER"
