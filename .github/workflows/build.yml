@@ -83,6 +83,7 @@ jobs:
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native32.dll
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native64.dylib
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
+          Remove-Item -Recurse -Force .\changed.txt
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
       - name: Update Repo
