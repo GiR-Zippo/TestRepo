@@ -29,7 +29,9 @@ jobs:
 
       - if: steps.compare.outputs.CHANGED  == 'false'
         name: No SEER-Update needed
-        run: Remove-Item -Force .\changed.txt
+        run: |
+          Remove-Item -Recurse -Force LightAmp
+          Remove-Item -Force .\changed.txt
 
       #Remove if not needed: Copy new SEER and delete the LA folder
       - if: steps.compare.outputs.CHANGED  == 'true'
