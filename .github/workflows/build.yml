@@ -25,13 +25,13 @@ jobs:
 
       - name: Check for output
         id: "compare"
-        run: if (Get-Content .\changed.txt){$true}else{$false} > $GITHUB_OUTPUT
+        run: if (Get-Content .\changed.txt){"CHANGED=false" >> "$GITHUB_OUTPUT"}else{"CHANGED=true" >> "$GITHUB_OUTPUT"}
 
-      - if: steps.compare.outputs  == 'true'
+      - if: steps.compare.outputs.CHANGED  == 'true'
         name: IF
         run: echo ":)"
 
-      - if: steps.compare.outputs  == 'false'
+      - if: steps.compare.outputs.CHANGED  == 'false'
         name: IF NOT
         run: echo ":("
 
