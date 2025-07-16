@@ -31,7 +31,12 @@ jobs:
     runs-on: windows-latest
     
     steps:      
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: 'main'
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
     
       #Remove if not needed, clone the LA project and get seer
       - name: Clone LA Repository
@@ -133,13 +138,6 @@ jobs:
           asset_path: ./BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_name: BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_content_type: application/zip
-
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: 'main'
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
 
       - name: Update Repo
         uses: stefanzweifel/git-auto-commit-action@v5
