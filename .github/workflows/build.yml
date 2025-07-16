@@ -108,10 +108,18 @@ jobs:
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
-      - name: Update Repo
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          commit_message: Bump version to ${{steps.get-version.outputs.version}}
+          fetch-depth: 0
+          ref: 'develop'
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+      
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m "Bump version to ${{steps.get-version.outputs.version}}"
+          git push 
 
       - name: Create Release
         id: create-new-release
