@@ -16,9 +16,6 @@ on:
           - test_schedule
           - warning
           - debug
-env:
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
 jobs:
   del_runs:
     runs-on: ubuntu-latest
@@ -112,20 +109,9 @@ jobs:
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
       - name: Update Repo
-        uses: actions/create-github-app-token@v1
-        id: app-token
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          app-id: ${{ vars.VERSION_BUMPER_APPID }}
-          private-key: ${{ secrets.VERSION_BUMPER_SECRET }}
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # pulls all history and tags for Lerna to detect which packages changed
-          token: ${{ steps.app-token.outputs.token }}
-      # lerna can only add a commit if git user infos are set
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          commit_message: Bump version to ${{steps.get-version.outputs.version}}
 
       - name: Create Release
         id: create-new-release
