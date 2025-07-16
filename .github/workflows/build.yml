@@ -107,18 +107,8 @@ jobs:
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/Melanchall_DryWetMidi_Native64.dylib
           Remove-Item -Recurse -Force .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer.exe.config
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
+          ls .\BardMusicPlayer/bin/Release/net481/
 
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: 'main'
-          ssh-key: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Update Repo
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Bump version to ${{steps.get-version.outputs.version}}
   
       - name: Create Release
         id: create-new-release
@@ -143,4 +133,15 @@ jobs:
           asset_path: ./BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_name: BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
           asset_content_type: application/zip
-          
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: 'main'
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
+
+      - name: Update Repo
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Bump version to ${{steps.get-version.outputs.version}}
