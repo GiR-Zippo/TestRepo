@@ -112,7 +112,7 @@ jobs:
           Compress-Archive -Path .\BardMusicPlayer/bin/Release/net481/* -DestinationPath .\BardMusicPlayer/bin/Release/net481/BardMusicPlayer-${{steps.get-version.outputs.file-version}}.zip
 
       - name: Update Repo
-      - uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ vars.VERSION_BUMPER_APPID }}
